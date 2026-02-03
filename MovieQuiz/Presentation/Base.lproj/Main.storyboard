@@ -77,6 +77,9 @@
                                                     <fontDescription key="titleFontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                                     <color key="baseForegroundColor" name="YP Black"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="noButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ez0-MU-eQd"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xo-hh-Aec" userLabel="Yes Button">
                                                 <rect key="frame" x="197" y="0.0" width="177" height="60"/>
@@ -89,6 +92,9 @@
                                                     <fontDescription key="titleFontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                                     <color key="baseForegroundColor" name="YP Black"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="yesButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hjT-5O-9aY"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -107,6 +113,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Iuz-8b-d33" secondAttribute="trailing" constant="20" id="zeH-bP-wDf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="counterLabel" destination="dcx-of-uwX" id="gbo-j7-ApR"/>
+                        <outlet property="imageView" destination="Gdz-aj-iVL" id="ZSf-Fl-L1X"/>
+                        <outlet property="textLabel" destination="8LE-HT-qUQ" id="KF3-UC-Rod"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

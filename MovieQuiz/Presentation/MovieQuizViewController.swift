@@ -15,6 +15,7 @@ final class MovieQuizViewController: UIViewController {
     private var currentQuestionIndex = 0
     private var correctAnswers = 0
     private var questionsAmount = 10
+    private let customFont = UIFont(name: "YSDisplay-Medium", size: 20)
     
     private let questions: [Models.QuizQuestion] = [
         Models.QuizQuestion(
@@ -64,6 +65,8 @@ final class MovieQuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         showViewModel()
+        setupImageView()
+        setupButtons()
     }
     
     // MARK: - Game Flow
@@ -144,6 +147,20 @@ final class MovieQuizViewController: UIViewController {
             question: model.text,
             questionNumber: "\(currentQuestionIndex + 1)/\(questionsAmount)")
         return questionStep
+    }
+    
+    private func setupImageView() {
+        imageView.layer.cornerRadius = 20
+        imageView.clipsToBounds = true
+    }
+    
+    private func setupButtons() {
+        [yesButton, noButton].forEach { button in
+            button?.backgroundColor = .white
+            button?.layer.cornerRadius = 15
+            button?.clipsToBounds = true
+            button?.titleLabel?.font = customFont
+        }
     }
     
     // MARK: - Actions

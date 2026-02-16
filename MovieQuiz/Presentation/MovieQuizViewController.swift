@@ -18,6 +18,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
     private let customFont = UIFont(name: "YSDisplay-Medium", size: 20)
     private var questionFactory: QuestionFactoryProtocol = QuestionFactory()
     private var currentQuestion: QuizQuestion?
+    private var alertPresenter = AlertPresenter()
     
     // MARK: - Lifecycle
     
@@ -27,10 +28,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
         let factory = QuestionFactory()
         factory.delegate = self
         self.questionFactory = factory
-
         questionFactory.requestNextQuestion()
-        
-        //showViewModel()
         setupImageView()
         setupButtons()
     }
@@ -102,22 +100,20 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
         counterLabel.text = step.questionNumber
     }
     
-    private func show(quiz result: QuizResultsViewModel) {
-        let alert = UIAlertController(
+    func show(quiz result: QuizResultsViewModel) {
+        let model = AlertModel(
             title: result.title,
             message: result.text,
-            preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: result.buttonText, style: .default) { [weak self] _ in
+            buttonText: result.buttonText
+        ) { [weak self] in
             guard let self = self else { return }
             
             self.currentQuestionIndex = 0
             self.correctAnswers = 0
-            
-            questionFactory.requestNextQuestion()
+            self.questionFactory.requestNextQuestion()
         }
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
+
+        alertPresenter.show(in: self, model: model)
     }
     
     private func convert(model: QuizQuestion) -> QuizStepViewModel {

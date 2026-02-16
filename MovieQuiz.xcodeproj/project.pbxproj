@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B1D086D2F437F8000375455 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D086C2F437F7B00375455 /* AlertPresenter.swift */; };
+		5B1D086F2F437FEA00375455 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D086E2F437FE800375455 /* AlertModel.swift */; };
 		5B57CA672F3BC4A100972C31 /* QuestionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B57CA662F3BC49E00972C31 /* QuestionFactory.swift */; };
 		5B5C498D2F3E4C8C0094CA58 /* QuizStepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C498C2F3E4C7F0094CA58 /* QuizStepViewModel.swift */; };
 		5B5C498F2F3E4C9A0094CA58 /* QuizResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C498E2F3E4C900094CA58 /* QuizResultsViewModel.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		5B1D086C2F437F7B00375455 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		5B1D086E2F437FE800375455 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		5B57CA662F3BC49E00972C31 /* QuestionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionFactory.swift; sourceTree = "<group>"; };
 		5B5C498C2F3E4C7F0094CA58 /* QuizStepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizStepViewModel.swift; sourceTree = "<group>"; };
 		5B5C498E2F3E4C900094CA58 /* QuizResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultsViewModel.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		5B5C498B2F3E4C720094CA58 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5B1D086E2F437FE800375455 /* AlertModel.swift */,
 				5B5C49902F3E4C9D0094CA58 /* QuizQuestion.swift */,
 				5B5C498E2F3E4C900094CA58 /* QuizResultsViewModel.swift */,
 				5B5C498C2F3E4C7F0094CA58 /* QuizStepViewModel.swift */,
@@ -221,6 +224,7 @@
 				AD5EE5DE284D7887003966EF /* UIColor+Extensions.swift in Sources */,
 				5BC7F6CB2F40FC2500BD8B32 /* QuestionFactoryProtocol.swift in Sources */,
 				5BC7F6CD2F410C4000BD8B32 /* QuestionFactoryDelegate.swift in Sources */,
+				5B1D086F2F437FEA00375455 /* AlertModel.swift in Sources */,
 				5B5C498F2F3E4C9A0094CA58 /* QuizResultsViewModel.swift in Sources */,
 				5B5C498D2F3E4C8C0094CA58 /* QuizStepViewModel.swift in Sources */,
 				AD7AFA552836189F00399704 /* Array+Extensions.swift in Sources */,

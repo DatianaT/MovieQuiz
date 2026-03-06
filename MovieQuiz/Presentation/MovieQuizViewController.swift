@@ -37,7 +37,6 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
         questionFactory.loadData()
         setupImageView()
         setupButtons()
-        statisticService = StatisticService()
     }
     
     // MARK: - QuestionFactoryDelegate
@@ -82,12 +81,12 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
         activityIndicator.startAnimating()
     }
     
-    //    private func hideLoadingIndicator() {
-    //        activityIndicator.isHidden = true
-    //    }
+    private func hideLoadingIndicator() {
+        activityIndicator.isHidden = true
+    }
     
     func didLoadDataFromServer() {
-        activityIndicator.isHidden = true
+        hideLoadingIndicator()
         questionFactory.requestNextQuestion()
     }
 

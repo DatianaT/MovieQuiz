@@ -29,7 +29,8 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
+        presenter.viewController = self
         imageView.layer.cornerRadius = 20
         statisticService = StatisticService()
         showLoadingIndicator()
@@ -41,8 +42,6 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
     // MARK: - QuestionFactoryDelegate
     
     func didReceiveNextQuestion(question: QuizQuestion?) {
-        print("NEW QUESTION")
-        
         guard let question = question else {
             return
         }
@@ -114,7 +113,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
         alertPresenter.show(in: self, model: model)
     }
     
-    private func showAnswerResult(isCorrect: Bool) {
+    func showAnswerResult(isCorrect: Bool) {
         if isCorrect {
             correctAnswers += 1
         }
@@ -205,12 +204,14 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
         }
         showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
     }
-        
-    @IBAction private func noButtonClicked(_ sender: UIButton) {
-        handleAnswer(false)
-    }
-        
+    
     @IBAction private func yesButtonClicked(_ sender: UIButton) {
-        handleAnswer(true)
-    }
+            presenter.currentQuestion = currentQuestion
+            presenter.yesButtonClicked()
+        }
+    
+    @IBAction private func noButtonClicked(_ sender: UIButton) {
+            presenter.currentQuestion = currentQuestion
+            presenter.noButtonClicked()
+        }
 }

@@ -26,11 +26,14 @@ struct MoviesLoader: MoviesLoading {
             case .success(let data):
                 do {
                     let mostPopularMovies = try JSONDecoder().decode(MostPopularMovies.self, from: data)
+                    print("Movies loaded: \(mostPopularMovies.items.count)") // <-- DEBUG
                     handler(.success(mostPopularMovies))
                 } catch {
+                    print("JSON decode error: \(error)")
                     handler(.failure(error))
                 }
             case .failure(let error):
+                print("Network error: \(error)")
                 handler(.failure(error))
             }
         }
